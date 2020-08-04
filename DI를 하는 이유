@@ -1,0 +1,47 @@
+class Cappuccino extends Coffee {...}
+class Americano extends Coffee {...}
+
+Case 1.
+class Programmer {
+    private Coffee coffee;
+
+    public Programmer() {
+    	this.coffee = new Cappuccino(); // 직접 수정
+        // 또는 
+      this.coffee = new Americano(); // 직접 수정
+    }
+    
+    ...
+}
+
+Case 2.
+class Programmer {
+    private Coffee coffee;
+
+    // 그 날 마실 커피를 고를 수 있게된 개발자
+    public Programmer(Coffee coffee) {
+    	this.coffee = coffee;
+    }
+    
+    public startProgramming() {
+    	this.coffee.drink();
+        ...
+    }
+}
+
+1번 케이스의 경우
+Programmer pro = new Programmer();
+pro.coffee.getName();
+이런식으로 사용
+
+2번 케이스의 경우
+Cappuccino cappu = new Cappuccino();
+Programmer pro = new Programmer(cappu);
+pro.coffee.getName();
+이런식으로 사용
+
+위 상황 같은 경우에서 Americano를 추가하려면
+1번 케이스의 경우 this.coffee = new Americano();로 변경
+2번 케이스의 경우 수정할 게 없다. Americano라는 Dependency(부품)를 미리 생성하고, Programmer 객체를 생성할 때 Construction injection을 해주면 되니까.
+
+* 출처 https://velog.io/@wlsdud2194/what-is-di *
