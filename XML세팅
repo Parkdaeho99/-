@@ -1,0 +1,19 @@
+크게 보면 다음과 같다
+XMl 파일에 DI 과정을 태그로 집어넣고 ID를 지정
+그후 사용할 때 지정해줬던 ID로 호출해서 사용
+
+ex)
+Coffee americano = new Americano(); //Dependency 생성
+Programmer pro = new Programmer();
+pro.setAmericano(); //injection
+
+위 과정을 XML에 태그화해서 넣어야함. 이때 bean을 사용한다.
+<bean id="americano" class="Americano의 패키지경로"/> //dependency 생성
+<bean id="pro" class="Programmer의 패키지경로">
+  <property name="americano" ref="americano"/>  //injection
+</bean>
+
+property의 name은 setAmericano()를 의미하고 "set"을 제거하고 첫자 A를 소문자 a로 변경하여 기재한다. -> americano
+property의 ref는 xml 내에서 등록한 Dependency의 이름을 적어준다. 즉 Americano가 아니라 americano를 적는다.
+
+참고 - https://www.youtube.com/watch?v=bYu9MNLBvX0&list=PLq8wAnVUcTFUHYMzoV2RoFoY2HDTKru3T&index=7
