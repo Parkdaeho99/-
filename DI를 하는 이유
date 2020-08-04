@@ -17,7 +17,10 @@ class Programmer {
 Case 2.
 class Programmer {
     private Coffee coffee;
-
+    
+    public Programmer() {
+    
+    }
     // 그 날 마실 커피를 고를 수 있게된 개발자
     public Programmer(Coffee coffee) {
     	this.coffee = coffee;
@@ -43,5 +46,8 @@ pro.coffee.getName();
 위 상황 같은 경우에서 Americano를 추가하려면
 1번 케이스의 경우 this.coffee = new Americano();로 변경
 2번 케이스의 경우 수정할 게 없다. Americano라는 Dependency(부품)를 미리 생성하고, Programmer 객체를 생성할 때 Construction injection을 해주면 되니까.
-
+그리고
+1번 케이스의 경우 Programmer 객체가 생성될 때 Caffuccino 객체도 무조건 함께 생성된다. 즉, Programmer객체와 Caffuccino객체의 결합도가 매우 높다.
+2번 케이스의 경우 Programmer 객체가 생성되어도 Caffuccino 객체가 생성될 지 Americano 객체가 생성될 지 혹은, 아무것도 생성안될지 인젝션하기 전까진 그 누구도 알 수 없다.
+즉, 결합도가 매우 낮다.
 * 출처 https://velog.io/@wlsdud2194/what-is-di *
