@@ -17,7 +17,8 @@ public class Mytest {
 }
 
 interface Coffee {
-	abstract void drink(); //상속이든 인터페이스든 둘다 추상메소드를 가진다.
+	abstract void drink();
+	//상속이든 인터페이스든 둘다 추상메소드를 가진다.
 	// 인터페이스에서는 디폴트값이 abstarct라서 생략해도 된다.
 	// 인터페이스에서는 모든 메소드가 abstract이다. 단, default 메소드를 미리 구현해줄 수 있다.
 	// default 메소드를 미리 구현해주면 그대로 상속되기 때문에 implements할 때 구현하지 않아도 된다.
