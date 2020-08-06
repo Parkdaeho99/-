@@ -38,7 +38,7 @@ class Programmer {
 		this.coffee = coffee;
 	}
 	void getCoffee() {
-		coffee.drink();
+		coffee.drink(); // 가장 깔끔한 방법인듯
 		System.out.println(coffee.name);
 		// 42줄에서 coffee.name은 Americano나 Caffuccino의 name을 호출하지 않고 interface의 name을 호출한다.
 		// 왜냐하면 Americano나 Caffuccino 클래스에서 name이 private으로 선언되어 있어서 외부인 Programmer에서 접근할 수 없어서 차선책으로 부모 자신의 name을 호출하기 때문이다.
