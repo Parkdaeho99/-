@@ -39,6 +39,11 @@ class Programmer {
 	}
 	void getCoffee() {
 		coffee.drink();
+		System.out.println(coffee.name);
+		// 42줄에서 coffee.name은 Americano나 Caffuccino의 name을 호출하지 않고 interface의 name을 호출한다.
+		// 왜냐하면 Americano나 Caffuccino 클래스에서 name이 private으로 선언되어 있어서 외부인 Programmer에서 접근할 수 없어서 차선책으로 부모 자신의 name을 호출하기 때문이다.
+		// 즉, Coffee coffee = new Americano(); coffee.name을 했을 때 아무것도 발견할 수 없다면 부모 자신의 name을 호출한다.
+		// Americano나 Caffuccino의 name이 public으로 정의되어 있다면 자식들의 name이 호출될 것이다. 단, 42번째 줄에서 ((Americano)coffee).name 이런식으로 부모로 선언된 변수를 자식으로 타입캐스팅 해주어야 함
 	}
 }
 
