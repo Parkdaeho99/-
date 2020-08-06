@@ -1,0 +1,49 @@
+package interfaceTest;
+
+public class Mytest {
+	public static void main(String[] args) {
+		Americano ame = new Americano();
+		Caffuccino caffu = new Caffuccino();
+		Programmer pro = new Programmer();
+		pro.setCoffee(ame);
+		pro.drink();
+		pro.setCoffee(caffu);
+		pro.drink();
+	}
+}
+
+interface Coffee {
+	void drink();
+}
+
+class Americano implements Coffee {
+	private String name = "Americano";
+	@Override
+	public void drink() {
+		System.out.println(name+" Drink");
+	}
+}
+
+class Caffuccino implements Coffee {
+	private String name = "Caffuccino";
+	@Override
+	public void drink() {
+		System.out.println(name+" Drink");
+	}
+}
+
+class Programmer {
+	private Coffee coffee;
+
+	public Coffee getCoffee() {
+		return coffee;
+	}
+
+	public void setCoffee(Coffee coffee) {
+		this.coffee = coffee;
+	}
+	
+	public void drink() {
+		coffee.drink();
+	}
+}
