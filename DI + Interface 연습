@@ -1,0 +1,45 @@
+package interfaceTest;
+
+public class Mytest {
+	public static void main(String[] args) {
+		Americano ame = new Americano();
+		Caffuccino caffu = new Caffuccino();
+		Programmer pro = new Programmer();
+		pro.setCoffee(ame);
+		pro.getCoffee();
+		pro.setCoffee(caffu);
+		pro.getCoffee();
+	}
+}
+
+interface Coffee {
+	void drink();
+}
+
+class Americano implements Coffee{
+	private String name = "아메리카노";
+	@Override
+	public void drink() {
+		System.out.println(name+"를 마십니다.");
+	}
+}
+
+class Caffuccino implements Coffee{
+	private String name = "카푸치노";
+	@Override
+	public void drink() {
+		System.out.println(name+"를 마십니다.");
+	}
+}
+
+class Programmer {
+	private Coffee coffee;
+	void setCoffee(Coffee coffee) {
+		this.coffee = coffee;
+	}
+	void getCoffee() {
+		coffee.drink();
+	}
+}
+
+// 뭐든지 변수에 직접 접근하지 말고 게터 세터를 만들면 코드가 깔끔해진다.
