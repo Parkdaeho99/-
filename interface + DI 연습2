@@ -5,15 +5,24 @@ public class Mytest {
 		Americano ame = new Americano();
 		Caffuccino caffu = new Caffuccino();
 		Programmer pro = new Programmer();
+		Programmer pro2 = new Programmer();
+		Programmer pro3 = new Programmer();
 		pro.setCoffee(ame);
 		pro.drink();
-		pro.setCoffee(caffu);
-		pro.drink();
+		pro2.setCoffee(caffu);
+		pro2.drink();
+		pro3.setCoffee(ame);
+		pro3.drink();
 	}
 }
 
 interface Coffee {
-	void drink();
+	abstract void drink(); //상속이든 인터페이스든 둘다 추상메소드를 가진다.
+	// 인터페이스에서는 디폴트값이 abstarct라서 생략해도 된다.
+	// 인터페이스에서는 모든 메소드가 abstract이다. 단, default 메소드를 미리 구현해줄 수 있다.
+	// default 메소드를 미리 구현해주면 그대로 상속되기 때문에 implements할 때 구현하지 않아도 된다.
+	// 상속에서는 default를 써주지 않아도 된다.
+	// 상속에서는 abstarct를 써주어야 한다?
 }
 
 class Americano implements Coffee {
