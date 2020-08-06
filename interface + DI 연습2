@@ -23,6 +23,20 @@ interface Coffee {
 	// default 메소드를 미리 구현해주면 그대로 상속되기 때문에 implements할 때 구현하지 않아도 된다.
 	// 상속에서는 default를 써주지 않아도 된다.
 	// 상속에서는 abstarct를 써주어야 한다?
+	/*
+		abstract class Animal {
+			abstract void bark();
+			void feed() {
+				//이 메소드가 interface에서 default메소드 인듯
+			}
+		}
+	*/
+	/*
+		interface Vehicle {
+    			abstract void run (); //abstract 키워드는 생략 가능
+    			abstract void move ();
+		}
+	*/
 }
 
 class Americano implements Coffee {
